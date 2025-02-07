@@ -1,39 +1,16 @@
 package com.ui.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import com.utility.BrowserUtility;
+import static com.constants.Browser.*;
+import com.ui.pages.HomePage;
 
 public class LoginTest {
 
 	public static void main(String[] args) {
-		
-		WebDriver wd = new ChromeDriver(); //Launch a browser window!! Browsr session is created!!
-		
-		BrowserUtility browserUtility = new BrowserUtility(wd);
-		browserUtility.goToWebsite("http://www.automationpractice.pl/index.php");
-		browserUtility.maximizeWindow();
 
+		HomePage homePage = new HomePage(CHROME);
+		String userName = homePage.goToLoginPage().doLoginWith("geteti7621@minduls.com", "Password").getUserName();
+		System.out.println(userName);
 		
-		By signInLocator = By.xpath("//a[contains(text(),\"Sign in\")]");
-		WebElement signInLinkWebElement = wd.findElement(signInLocator);//Find the element!!!
-		signInLinkWebElement.click();
-		
-		By emailTextBoxLocator = By.xpath("//input[@id=\"email\"]");
-		WebElement emailTextBoxWebElement = wd.findElement(emailTextBoxLocator);//Find the element!!!
-		emailTextBoxWebElement.sendKeys("geteti7621@minduls.com");
-		
-		By passwordTextBoxLocator = By.xpath("//input[@id=\"passwd\"]");
-		WebElement passwordTextBoxWebElement = wd.findElement(passwordTextBoxLocator);//Find the element!!!
-		passwordTextBoxWebElement.sendKeys("Password");
-		
-		By loginButtonLocator = By.xpath("//button[@id=\"SubmitLogin\"]");
-		WebElement loginButttonWebElement = wd.findElement(loginButtonLocator);//Find the element!!!
-		loginButttonWebElement.click();
-			
 	}
 
 }
