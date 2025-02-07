@@ -5,4 +5,15 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>selenium-automation-framework</name>
   <description>Test Automation Framework</description>
+  <dependencies>
+  
+		  <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+		    <groupId>org.seleniumhq.selenium</groupId>
+		    <artifactId>selenium-java</artifactId>
+		    <version>4.28.1</version>
+		</dependency>
+
+  
+  </dependencies>
 </project>
