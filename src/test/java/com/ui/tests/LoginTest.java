@@ -5,14 +5,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.utility.BrowserUtility;
+
 public class LoginTest {
 
 	public static void main(String[] args) {
 		
 		WebDriver wd = new ChromeDriver(); //Launch a browser window!! Browsr session is created!!
-		wd.get("http://www.automationpractice.pl/index.php");
-		//maximize the browser window!!
-		wd.manage().window().maximize();
+		
+		BrowserUtility browserUtility = new BrowserUtility(wd);
+		browserUtility.goToWebsite("http://www.automationpractice.pl/index.php");
+		browserUtility.maximizeWindow();
+
 		
 		By signInLocator = By.xpath("//a[contains(text(),\"Sign in\")]");
 		WebElement signInLinkWebElement = wd.findElement(signInLocator);//Find the element!!!
