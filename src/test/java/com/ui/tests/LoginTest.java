@@ -1,16 +1,25 @@
 package com.ui.tests;
 
 import static com.constants.Browser.*;
+
+import static org.testng.Assert.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
 import com.ui.pages.HomePage;
 
 public class LoginTest {
 
-	public static void main(String[] args) {
+	HomePage homePage;
+	
+	@BeforeMethod(description = "Load the homepage of the application")
+	public void setup() {
+		 homePage = new HomePage(CHROME);
+	}
 
-		HomePage homePage = new HomePage(CHROME);
-		String userName = homePage.goToLoginPage().doLoginWith("geteti7621@minduls.com", "Password").getUserName();
-		System.out.println(userName);
-		
+	@Test(description = "Verify login with valid user", groups = {"e2e","sanity"})
+	public void loginTest() {
+		assertEquals(homePage.goToLoginPage().doLoginWith("geteti7621@minduls.com", "Password").getUserName(), "Hiren Patel");
 	}
 
 }

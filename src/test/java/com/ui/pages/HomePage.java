@@ -11,6 +11,7 @@ public final class HomePage extends BrowserUtility {
 	public HomePage(Browser browserName) {
 		super(browserName);//To call the parent class constructor from the child constructor!!
 		goToWebsite("http://www.automationpractice.pl");
+		maximizeWindow();
 	}
 
 	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(),\"Sign in\")]");
