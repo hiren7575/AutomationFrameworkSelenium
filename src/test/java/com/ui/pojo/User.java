@@ -1,6 +1,11 @@
 package com.ui.pojo;
 
 public class User {
+	public User(String emailAddress, String password) {
+		super();
+		this.emailAddress = emailAddress;
+		this.password = password;
+	}
 	private String emailAddress;
 	private String password;
 	

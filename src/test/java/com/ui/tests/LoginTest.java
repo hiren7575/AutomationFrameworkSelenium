@@ -22,5 +22,14 @@ public class LoginTest {
 	public void loginTest(User user) {
 		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmailAddress(),user.getPassword()).getUserName(), "Hiren Patel");
 	}
+	
+	@Test(description = "Verify login with valid user", groups = {"e2e","sanity"}, dataProviderClass = com.ui.dataproviders.LoginDataProvider.class, dataProvider = "loginTestCSVDataProvider")
+	public void loginCSVTest(User user) {
+		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmailAddress(),user.getPassword()).getUserName(), "Hiren Patel");
+	}
 
+	@Test(description = "Verify login with valid user", groups = {"e2e","sanity"}, dataProviderClass = com.ui.dataproviders.LoginDataProvider.class, dataProvider = "loginTestExcelDataProvider")
+	public void loginExcelTest(User user) {
+		assertEquals(homePage.goToLoginPage().doLoginWith(user.getEmailAddress(),user.getPassword()).getUserName(), "Hiren Patel");
+	}
 }
