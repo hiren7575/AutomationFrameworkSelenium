@@ -64,7 +64,7 @@ public abstract class BrowserUtility {
 		if(browserName == Browser.CHROME) {
 			if(isHeadless) {
 				ChromeOptions options = new ChromeOptions();
-				options.addArguments("--headless=old");
+				options.addArguments("--headless");
 				options.addArguments("--window-size=1920,1080");
 				driver.set(new ChromeDriver(options));
 			}
@@ -76,7 +76,7 @@ public abstract class BrowserUtility {
 		else if(browserName == Browser.EDGE) {
 			if(isHeadless) {
 				EdgeOptions options = new EdgeOptions();
-				options.addArguments("--headless=old");
+				options.addArguments("--headless");
 				options.addArguments("disable-gpu");
 				driver.set(new EdgeDriver(options));
 			}
@@ -88,7 +88,7 @@ public abstract class BrowserUtility {
 		else if(browserName == Browser.FIREFOX) {	
 			if(isHeadless) {
 				FirefoxOptions options = new FirefoxOptions();
-				options.addArguments("--headless=old");
+				options.addArguments("-headless");
 				driver.set(new FirefoxDriver(options));
 			}
 			else {
