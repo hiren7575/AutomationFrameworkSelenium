@@ -11,15 +11,15 @@ import com.utility.JSONUtility;
 import static com.utility.PropertiesUtil.*;
 
 public final class HomePage extends BrowserUtility {
+
+	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(),\"Sign in\")]");
 	
-	public HomePage(Browser browserName) {
-		super(browserName);//To call the parent class constructor from the child constructor!!
+	public HomePage(Browser browserName,boolean isHeadless) {
+		super(browserName,isHeadless);//To call the parent class constructor from the child constructor!!
 		//goToWebsite(readProperty(QA, "URL"));
 		goToWebsite(JSONUtility.readJSON(QA).getUrl());
 		maximizeWindow();
 	}
-
-	private static final By SIGN_IN_LINK_LOCATOR = By.xpath("//a[contains(text(),\"Sign in\")]");
 
 	public LoginPage goToLoginPage() {//Page Functions----> cannot be void
 		clickOn(SIGN_IN_LINK_LOCATOR);
