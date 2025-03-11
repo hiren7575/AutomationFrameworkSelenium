@@ -20,6 +20,11 @@ public final class HomePage extends BrowserUtility {
 		goToWebsite(JSONUtility.readJSON(QA).getUrl());
 		maximizeWindow();
 	}
+	
+	public HomePage(WebDriver driver) {
+		super(driver);
+		goToWebsite(JSONUtility.readJSON(QA).getUrl());
+	}
 
 	public LoginPage goToLoginPage() {//Page Functions----> cannot be void
 		clickOn(SIGN_IN_LINK_LOCATOR);
