@@ -2,6 +2,9 @@
 
 <suite name="Selenium Automation Test Suite" parallel="methods" thread-counts="4" verbose="1">
   <test name="UI Automation Test">
+  	<Parameter name="browser" value="${browser}"/>
+  	<Parameter name="isLambdaTest" value="${isLambdaTest}"/>
+  	<Parameter name="isHeadless" value="${isHeadless}"/>
     <classes>
        <class name="com.ui.tests.LoginTest"/>
     </classes>
